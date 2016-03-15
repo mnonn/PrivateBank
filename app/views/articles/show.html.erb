@@ -1,0 +1,19 @@
+<div class="news-complete row pull-left">
+	<h3><%= @article.title %></h3>
+	<small class="title"><%= @article.user.username %></small>	
+	<div class="art-text container">
+		<p><%= @article.text.html_safe %></p><br>
+	</div>
+	<h4>Kommentare: </h4>
+	<%if @article.comments.count > 0 %>
+		<div class="comment container pull-left" >
+			<%= render @article.comments %>
+		</div>
+	<% end %>
+	<% if user_signed_in? %>
+		<%= render 'comments/form' %>
+	<% end %>
+	<div>
+	<%= link_to 'zurück', root_path %><br>
+	</div>
+</div>

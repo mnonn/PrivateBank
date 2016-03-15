@@ -1,0 +1,8 @@
+	<%= form_for([@article, @article.comments.build]) do |f| %>
+	  <p>
+	    <p class="textfield"><%= f.text_area :text %></p>
+	  </p>
+	  <p>
+	    <div class="submit-btn"><%= f.submit "Kommentar hinzufügen", class: 'btn btn-primary' %></div>
+	  </p>
+	<% end %>

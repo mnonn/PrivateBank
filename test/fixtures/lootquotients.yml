@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  raids_participated: 1
+  loot: 1
+  user_id: 1
+
+two:
+  raids_participated: 1
+  loot: 1
+  user_id: 1

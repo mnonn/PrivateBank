@@ -1,0 +1,49 @@
+<div class="form-container row pull-left">
+  <h1>Charakter bearbeiten: </h1>
+  <%= form_for @wowchar do |f| %>
+   
+    <% if @wowchar.errors.any? %>
+      <div class="error_explanation">
+        <h2>
+          <%= pluralize(@wowchar.errors.count, "error") %> prohibited
+          this wowchar from being saved:
+        </h2>
+        <ul>
+          <% @wowchar.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <p>
+      <%= f.label :name %><br>
+      <p class="textfield"><%= f.text_field :name %></p>
+    </p>
+   
+    <p>
+      <%= f.label :classname %><br>
+      <p class="textfield"><%= f.text_field :classname %></p>
+    </p>
+
+    <p>
+      <%= f.label :faction %><br>
+      <p class="textfield"><%= f.text_field :faction %></p>
+    </p>
+
+    <p>
+      <%= f.label :race %><br>
+      <p class="textfield"><%= f.text_field :race %></p>
+    </p>
+
+    <p>
+      <%= f.label :level %><br>
+      <p class="textfield"><%= f.number_field :level %></p>
+    </p>
+    <p>
+      <div class="actions"><%= f.submit %></div>
+    </p>
+   
+  <% end %>
+  <%= link_to 'zurück',users_show_path(current_user)%>
+</div>

@@ -1,0 +1,5 @@
+$font-main: Ubuntu, sans-serif;
+$primary-color: #424242;
+$secondary-color: white;
+$primary-text-color: #424242;
+$secondary-text-color: #EB7C14;

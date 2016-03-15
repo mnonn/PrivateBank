@@ -1,0 +1,2 @@
+class RaidController < ApplicationController
+end

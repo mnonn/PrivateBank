@@ -1,0 +1,10 @@
+<div class="wowchar">
+	<p><%= wowchar.name %><small> -- <%= wowchar.level %> <%= wowchar.faction %>  <%= wowchar.classname %></small></p>
+	<% if wowchar.user == current_user %>
+		<small><%= link_to 'Ändern', edit_wowchar_path(wowchar) %>  | 
+		<%= link_to 'Löschen', wowchar_path(wowchar),
+		      					method: :delete,
+		      					data: { confirm: 'Sind sie sicher?' } %>
+		</small>
+	<% end %>
+</div>

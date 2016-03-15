@@ -1,0 +1,2 @@
+module LootlistHelper
+end

@@ -1,0 +1,2 @@
+class LootlistController < ApplicationController
+end

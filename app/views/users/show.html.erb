@@ -1,0 +1,10 @@
+<div class="form-container row pull left">
+	<div class="users row pull-left">
+		<%= render @user %>
+	</div>
+	<div class="chars row pull-right">
+		<h4>World of Warcraft Charaktere:</h4>
+		<%= render @user.wowchars %>
+		<%= link_to 'Neuen Charakter erstellen', new_wowchar_path %>
+	</div>
+</div>

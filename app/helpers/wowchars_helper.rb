@@ -1,0 +1,2 @@
+module WowcharsHelper
+end
