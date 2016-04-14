@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'PrivateBankApp'
+set :application, 'PrivateBank'
 set :repo_url, 'git@github.com:mnonn/PrivateBank.git'
 
 # Default branch is :master
