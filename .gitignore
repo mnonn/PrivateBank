@@ -7,4 +7,5 @@
 /shared/*
 
 config/database.yml
+config/datebase.yml~
 config/secrets.yml
