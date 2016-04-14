@@ -2,13 +2,13 @@
 lock '3.4.0'
 
 set :application, 'PrivateBankApp'
-set :repo_url, 'git@github.com:mnonn/PrivateBankApp.git'
+set :repo_url, 'git@github.com:mnonn/PrivateBank.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/privatebank/PrivateBankApp'
+set :deploy_to, '/home/deploy/PrivateBank'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -35,14 +35,13 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # set :keep_releases, 5
 
 namespace :deploy do
+	desc 'Restart application'
+	task :restart do
+	    on roles(:app), in: :sequence, wait: 5 do
+	      execute :touch, release_path.join('tmp/restart.txt')
+	    end
+	end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
-  end
-
+	after :publishing, 'deploy:restart'
+	after :finishing, 'deploy:cleanup'
 end
