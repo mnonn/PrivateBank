@@ -4,7 +4,5 @@
 !/log/.keep
 /tmp
 
-/shared/*
-
 config/database.yml
 config/secrets.yml
