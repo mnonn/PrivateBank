@@ -17,11 +17,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
+@font-face {
+    font-family: 'lifecraftregular';
+    src: url('lifecraft_font-webfont.eot');
+    src: url('lifecraft_font-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lifecraft_font-webfont.woff2') format('woff2'),
+         url('lifecraft_font-webfont.woff') format('woff'),
+         url('lifecraft_font-webfont.ttf') format('truetype'),
+         url('lifecraft_font-webfont.svg#lifecraftregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 .main{
 	background: rgb(15,15,15);
 	.logo{
-		font-family: LifeCraft;
+		font-family: lifecraftregular;
 		font-size: 150%;
 		color: #FCC02C;
 		background: url('banner.png') no-repeat;
