@@ -20,7 +20,7 @@
 				<li><%= link_to 'Forum', root_path %></li>
 				<li><%= link_to 'Raid', raid_path %></li>
 				<li><a href="https://www.warcraftlogs.com/guilds/22192" target="_blank">Logs</a></li>
-				<% if user_signed_in? %>
+				<% if user_signed_in? && current_user.raidmember == 1 %>
 					<li><%= link_to 'Lootliste', lootlist_path %></li>
 					<li><%= link_to 'Events', events_path %></li>
 				<% end %> 
