@@ -88,20 +88,25 @@
 }
 
 .submit-btn{
+  font-family: fira_sansregular;
 	color: white;
 }
 .actions{
+  font-family: fira_sansregular;
 	color: black;
 }
 
 .textfield{
+  font-family: fira_sansregular;
 	color: black;
 }
 
 .alert-alert {
+  font-family: fira_sansregular;
   @extend .alert-warning;
 }
 
 .alert-notice {
+  font-family: fira_sansregular;
   @extend .alert-info;
 }

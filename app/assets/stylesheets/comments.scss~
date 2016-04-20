@@ -3,6 +3,5 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .btn{
-  font-family: fira_sansregular;
 	color: white;	
 }

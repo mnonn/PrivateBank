@@ -72,7 +72,6 @@
 		}
 	}
 	.comment{
-	  font-family: fira_sansregular;
 		padding: 5px 5px;
 		margin: 5px;
 		max-width: 650px;
