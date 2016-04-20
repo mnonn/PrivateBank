@@ -15,9 +15,6 @@ Rails.application.routes.draw do
   get 'lootlist' => 'lootlist#lootlist'
   get 'events' => 'events#index'
   get 'users/show'
-  
-  get "notfound", to: "application#catch_404", via: :all
- 	get "*path", to: "application#catch_404", via: :all
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

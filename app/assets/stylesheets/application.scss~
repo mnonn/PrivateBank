@@ -43,7 +43,7 @@
 }
 
 .form-container{
-	font-family: "Morris Roman";
+	font-family: MorrisRoman;
 	position: relative;
 	color: white;
 	background: rgb(50,50,50);
