@@ -33,7 +33,7 @@
 .main{
 	background: rgb(15,15,15);
 	.logo{
-		font-family: LifeCraft;
+		font-family: lifecraftregular;
 		font-size: 150%;
 		color: #FCC02C;
 		background: url('banner.png') no-repeat;

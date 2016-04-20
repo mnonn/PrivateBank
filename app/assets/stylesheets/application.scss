@@ -19,12 +19,12 @@
 @import 'bootstrap/theme';
 @font-face {
     font-family: 'lifecraftregular';
-    src: url('lifecraft_font-webfont.eot');
-    src: url('lifecraft_font-webfont.eot?#iefix') format('embedded-opentype'),
-         url('lifecraft_font-webfont.woff2') format('woff2'),
-         url('lifecraft_font-webfont.woff') format('woff'),
-         url('lifecraft_font-webfont.ttf') format('truetype'),
-         url('lifecraft_font-webfont.svg#lifecraftregular') format('svg');
+    src: url(font-path('lifecraft_font-webfont.eot'));
+    src: url(font-path('lifecraft_font-webfont.eot?#iefix')) format('embedded-opentype'),
+         url(font-path('lifecraft_font-webfont.woff2')) format('woff2'),
+         url(font-path('lifecraft_font-webfont.woff')) format('woff'),
+         url(font-path('lifecraft_font-webfont.ttf')) format('truetype'),
+         url(font-path('lifecraft_font-webfont.svg#lifecraftregular')) format('svg');
     font-weight: normal;
     font-style: normal;
 
