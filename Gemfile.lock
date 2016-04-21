@@ -115,6 +115,7 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
@@ -226,6 +227,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   kaminari
+  mysql2
   omniauth-bnet (~> 1.1)
   pg
   rails
