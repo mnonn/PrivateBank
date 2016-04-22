@@ -1,6 +1,6 @@
 <div  class="form-container pull-left">
 
-<h2>Change your password</h2>
+<h2>Passwort ändern</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "Passwort ändern" %>
   </div>
 <% end %>
 

@@ -1,0 +1,13 @@
+<div class="form-container row pull left">
+	<div class="users row pull-left">
+		<h3><%= @user.username %><small> -- <%= link_to 'Ändern', edit_user_registration_path %></small></h3>
+    <p><%= @user.email %></p>
+<p>info stuff</p>
+
+	</div>
+	<div class="chars row pull-right">
+		<h4>World of Warcraft Charaktere:</h4>
+		<%= render @user.wowchars %>
+		<%= link_to 'Neuen Charakter erstellen', new_wowchar_path %>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<p><%= comment.text  %> - 
+	<small>	<%= comment.user.username %> 
+			<% if current_user == comment.user %>
+			<%= link_to 'löschen', [comment.article, comment],
+           					method: :delete,
+           					data: { confirm: 'Sind sie sicher?' } %>
+           	<% end %>
+    </small>
+</p>

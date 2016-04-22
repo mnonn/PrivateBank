@@ -1,5 +1,5 @@
 <div  class="form-container pull-left">
-<h2>Resend unlock instructions</h2>
+<h2>Account freischalten</h2>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -10,7 +10,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
+    <%= f.submit "Freischaltung beauftragen" %>
   </div>
 <% end %>
 

@@ -18,7 +18,7 @@
       <%= f.label :password %><br />
       <p class="textfield"><%= f.password_field :password, autocomplete: "off" %></p>
       <% if @validatable %>
-        <span class="help-block"><%= @minimum_password_length %> characters minimum</span>
+        <span class="help-block"><%= @minimum_password_length %> Zeichen mindestens</span>
       <% end %>
     </div>
 
@@ -30,5 +30,5 @@
     <%= f.submit "Registrieren", class: 'submit-btn btn btn-primary' %>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <%= render "users/shared/links" %>
 </div>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-        registrations: 'users/registrations'
+        registrations: 'users/registrations',
+        sessions: 'users/sessions'
       }
   resources :articles do
     resources :comments
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
   get 'lootlist' => 'lootlist#lootlist'
   get 'events' => 'events#index'
   get 'users/show'
-  
+  get 'users' => 'users#index'
+  post 'users/mod' => 'users#mod'
+  post 'users/raid' => 'users#raid'  
   get "notfound", to: "application#catch_404", via: :all
  	get "*path", to: "application#catch_404", via: :all
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,8 +4,7 @@
     <% if @article.errors.any? %>
       <div class="error_explanation">
         <h2>
-          <%= pluralize(@article.errors.count, "error") %> prohibited
-          this article from being saved:
+          <%= pluralize(@article.errors.count, "error") %> Vorgang abgebrochen:
         </h2>
         <ul>
           <% @article.errors.full_messages.each do |msg| %>
@@ -30,5 +29,5 @@
     </p>
    
 <% end %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'zurück', root_path %>
 </div>

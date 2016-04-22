@@ -11,8 +11,11 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
-# Use device gem for user authentification
+# Use device gem for user authentification and some security stuff
 gem 'devise'
+gem 'figaro' # for storing ENV variables 
+gem 'recaptcha', require: 'recaptcha/rails' # NYI, incoming with ssl cert
+
 # bnet gem for bnet user authentification
 gem 'omniauth-bnet', '~> 1.1'
 #'kaminari' gem for pagination

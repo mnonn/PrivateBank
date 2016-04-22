@@ -34,6 +34,7 @@
             		</a>
             		<ul class="dropdown-menu" role="menu">
             			<%if current_user.moderator == 1 %>
+            			    <li><%= link_to 'Admin', users_path %></li>
               				<li><%= link_to 'Neuer Post', new_article_path %></li>
               			<% end %>
               			<li><%= link_to 'Profil', users_show_path(current_user) %></li>

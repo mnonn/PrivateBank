@@ -1,6 +1,9 @@
 <div class="form-container row pull left">
 	<div class="users row pull-left">
-		<%= render @user %>
+		<h3><%= @user.username %><small> -- <%= link_to 'Ändern', edit_user_registration_path %></small></h3>
+    <p><%= @user.email %></p>
+<p>NYI</p>
+
 	</div>
 	<div class="chars row pull-right">
 		<h4>World of Warcraft Charaktere:</h4>

@@ -2,8 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
   has_many :articles
   has_many :wowchars, dependent: :destroy
   has_many :comments
+  attr_accessible :cached_failed_attempts
+  
+  def self.logins_before_captcha
+    3
+  end
 end
