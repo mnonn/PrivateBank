@@ -34,6 +34,7 @@
             		</a>
             		<ul class="dropdown-menu" role="menu">
             			<%if current_user.moderator == 1 %>
+            			    <li><%= link_to 'Admin', users_path %></li>
               				<li><%= link_to 'Neuer Post', new_article_path %></li>
               			<% end %>
               			<li><%= link_to 'Profil', users_show_path(current_user) %></li>
@@ -68,6 +69,7 @@
 		<div class="container wowprogress">
 		<a href="http://www.wowprogress.com/guild/eu/die-aldor/Private+Bank"><img alt="WoW Guild Rankings" src="http://wowprogress.com/guild_img/700077/out/type.site" border="0"/></a>
 		</div>
+		<div class="row discord"><iframe src="https://discordapp.com/widget?id=111133444905414656&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe></div>
 		<h4>Lorem ipsum</h4>
 	  	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 	  	</p> 	
