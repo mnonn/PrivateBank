@@ -5,7 +5,7 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :username %><br />
+      <%= f.label :benutzername %><br />
       <p class="textfield"><%= f.text_field :username %></p>
     </div>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password %><br />
+      <%= f.label :passwort %><br />
       <p class="textfield"><%= f.password_field :password, autocomplete: "off" %></p>
       <% if @validatable %>
         <span class="help-block"><%= @minimum_password_length %> Zeichen mindestens</span>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :passwort_bestätigen %><br />
       <p class="textfield"><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
     </div>
 
