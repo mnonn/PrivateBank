@@ -14,12 +14,20 @@ gem 'jquery-turbolinks'
 # Use device gem for user authentification and some security stuff
 gem 'devise'
 gem 'figaro' # for storing ENV variables 
-gem 'recaptcha', require: 'recaptcha/rails' # NYI incoming with ssl cert
+gem 'recaptcha', require: 'recaptcha/rails' # NYI, incoming with ssl cert
 
 # bnet gem for bnet user authentification
 gem 'omniauth-bnet', '~> 1.1'
 #'kaminari' gem for pagination
 gem 'kaminari'
+
+#forem gem with styles for the forum implementation
+gem 'forem', github: "radar/forem", branch: "rails4"
+gem 'forem-bootstrap', github: "radar/forem-bootstrap"
+gem 'forem-redcarpet', github: "radar/forem-redcarpet"
+gem 'cancan', '1.6.7'
+gem 'rails_emoji_picker'
+gem 'emoji'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

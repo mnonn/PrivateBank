@@ -1,8 +1,8 @@
 <div class="user-list">
 	<p><%= user.username %><small> -- <%= user.email %></small></p>
 	      <small> <p>Moderator = <%= user.moderator %></p> 
-	              <p>Raidmember = <%= user.raidmember %></p></small>
-	
+	              <p>Raidmember = <%= user.raidmember %></p>
+	              <p>Forumadmin = <%= user.forem_admin %></p></small>
 	<% if current_user.moderator == 1 %>
 		<small><div class="actions"><%= button_to 'mod', {controller: 'users', action: 'mod', :id => user.id} %></div>
            <div class="actions"><%= button_to 'raid', {controller: 'users', action: 'raid', :id => user.id} %></div></small>

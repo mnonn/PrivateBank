@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
   def self.logins_before_captcha
     3
   end
+  
+  def forem_name
+    username
+  end
+  
+  def forem_email
+    email
+  end
 end

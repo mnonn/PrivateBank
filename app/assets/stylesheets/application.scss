@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
+@import 'forem/base';
+@import 'rails_emoji_picker';
+
 @font-face {
     font-family: 'lifecraftregular';
     src: url(font-path('lifecraft_font-webfont.eot'));
@@ -75,6 +78,37 @@
 	}
 }
 
+.forum-index{
+	font-family: fira_sansregular;
+	position: relative;
+	color: black;
+	background: white;
+	margin: 10px;
+	padding: 0 20px;
+	max-width: 1100px;
+	border-style: solid;
+    border-width: 5px;
+    border-color: rgb(80,80,80);
+    border-radius: 5px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	.title {
+		color: grey;
+	}
+	.forum-tile{
+	  
+	}
+	.category{
+	}
+	.post{
+	  margin: 10px;
+	  max-width: 1000px;
+	  background: rgb(240,240,240);
+	  
+	}
+	.topic{
+	}
+}
+
 .form-container{
 	font-family: fira_sansregular;
 	position: relative;
@@ -100,6 +134,14 @@
 }
 
 .textfield{
+  max-width: 200px;
+  font-family: fira_sansregular;
+	color: black;
+}
+
+.great-textfield{
+  width: 500px;
+  height: 200px;
   font-family: fira_sansregular;
 	color: black;
 }

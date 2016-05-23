@@ -1,13 +1,26 @@
+<div class="rightpanel container pull-right">
+		<h3>Aktuelle Informationen:</h3>
+		<div class="container wowprogress">
+		<a href="http://www.wowprogress.com/guild/eu/die-aldor/Private+Bank"><img alt="WoW Guild Rankings" src="http://wowprogress.com/guild_img/700077/out/type.site" border="0"/></a>
+		</div>
+		<hr>
+		<div class="discord"><iframe src="https://discordapp.com/widget?id=111133444905414656&theme=dark" width="300" height="500" allowtransparency="true" frameborder="0"></iframe></div>
+		
+	</div>
+
 <div class="form-container row pull left">
 	<div class="users row pull-left">
 		<h3><%= @user.username %><small> -- <%= link_to 'Ändern', edit_user_registration_path %></small></h3>
     <p><%= @user.email %></p>
-<p>NYI</p>
+<p>NYI <br> Zur Anzeige der Profilinformationen</p>
 
 	</div>
 	<div class="chars row pull-right">
 		<h4>World of Warcraft Charaktere:</h4>
 		<%= render @user.wowchars %>
-		<%= link_to 'Neuen Charakter erstellen', new_wowchar_path %>
+		<!--<%= link_to 'Neuen Charakter erstellen', new_wowchar_path %>-->
+		<h4> NYI</h4>
+		<p> Hier soll es möglich sein Charaktere <br>
+		zu erstellen oder aus der Armory zu importieren </p>
 	</div>
 </div>

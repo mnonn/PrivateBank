@@ -27,6 +27,17 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
+  def forumadmin
+    @user = User.find(params[:id])
+    if @user.forem_admin == false
+      @user.forem_admin = true
+    else
+      @user.forem_admin = false
+    end 
+    @user.save
+    redirect_to users_path
+  end
+  
   def show
   	@user = current_user
   end

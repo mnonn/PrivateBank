@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  # This line mounts Forem's routes at /forums by default.
+  # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
+  # If you would like to change where this extension is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
+  mount Forem::Engine, :at => '/forums'
+
+
   devise_for :users, controllers: {
         registrations: 'users/registrations',
         sessions: 'users/sessions'
@@ -18,7 +26,8 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'users' => 'users#index'
   post 'users/mod' => 'users#mod'
-  post 'users/raid' => 'users#raid'  
+  post 'users/raid' => 'users#raid'
+  post 'users/forumadmin' => 'users#forumadmin'  
   get "notfound", to: "application#catch_404", via: :all
  	get "*path", to: "application#catch_404", via: :all
   # The priority is based upon order of creation: first created -> highest priority.

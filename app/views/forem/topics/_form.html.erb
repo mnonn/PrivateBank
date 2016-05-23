@@ -1,0 +1,13 @@
+<%= simple_form_for [forem, @forum, @topic] do |f| %>
+  <div class="form-group">
+    <%= f.label :thema %>
+    <p class="textfield"><%= f.text_field :subject %></p>
+  </div>
+
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+  <% end %>
+  
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>
+

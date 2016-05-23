@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery.turbolinks
 //= require bootstrap/dropdown
+//= require forem
+//= require rails_emoji_picker
+//= require_tree .
+

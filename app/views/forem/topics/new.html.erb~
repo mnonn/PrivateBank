@@ -1,0 +1,20 @@
+<div class='form-container row pull-left'>
+<%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
+
+<h2><%= t("forem.topic.new") %></h2>
+
+<%= simple_form_for [forem, @forum, @topic] do |f| %>
+  <div class="form-group">
+    <%= f.label :thema %>
+    <p class="textfield"><%= f.text_field :subject %></p>
+  </div>
+ 
+ <div class="textfield"> 
+  <%= f.simple_fields_for :posts do |post| %>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+  <% end %>
+ </div>
+  
+  <%= f.submit :class => "btn btn-primary" %>
+<% end %>
+</div>

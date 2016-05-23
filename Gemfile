@@ -21,6 +21,15 @@ gem 'omniauth-bnet', '~> 1.1'
 #'kaminari' gem for pagination
 gem 'kaminari'
 
+#forem gem with styles for the forum implementation
+gem 'forem', github: "radar/forem", branch: "rails4"
+gem 'forem-bootstrap', github: "radar/forem-bootstrap"
+gem 'forem-redcarpet', github: "radar/forem-redcarpet"
+gem 'cancan', '1.6.7'
+gem 'rails_emoji_picker'
+gem 'emoji'
+gem 'gemoji'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

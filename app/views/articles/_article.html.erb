@@ -1,6 +1,6 @@
 <div class="news-front container pull-left">
  		<h3><%= article.title %></h3>
-		<small class="title"><%= article.user.username %></small>	
+		<small class="title"><%= article.user.username %> -- Erstellt vor <%= time_ago_in_words(article.created_at) %></small>	
 		<div class="art-text container">
 			<%= article.text.html_safe %> <br>
 		</div>

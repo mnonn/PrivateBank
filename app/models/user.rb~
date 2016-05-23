@@ -6,9 +6,16 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :wowchars, dependent: :destroy
   has_many :comments
-  attr_accessible :cached_failed_attempts
-  
+
   def self.logins_before_captcha
     3
+  end
+  
+  def forem_name
+    username
+  end
+  
+  def forem_email
+    email
   end
 end
