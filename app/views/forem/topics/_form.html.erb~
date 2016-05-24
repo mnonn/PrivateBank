@@ -1,5 +1,5 @@
 <%= simple_form_for [forem, @forum, @topic] do |f| %>
-    <div class="form-group">
+  <div class="form-group">
     <%= f.label :thema %>
     <p class="textfield"><%= f.text_field :subject %></p>
   </div>

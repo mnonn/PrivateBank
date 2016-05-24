@@ -5,7 +5,7 @@
   </div>
 
   <%= f.simple_fields_for :posts do |post| %>
-    <%= render :partial => "forem/posts/form", :locals => { :f => post }%>
+    <%= render :partial => "forem/posts/form", :locals => { :f => post }, :class => "great-textfield"%>
   <% end %>
   
   <%= f.submit :class => "btn btn-primary" %>

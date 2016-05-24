@@ -1,4 +1,7 @@
 de:
+  forem:
+    topic:
+      received_reply: 'Private Bank - Antwort auf Forenpost'
   activerecord:
     errors:
       messages:

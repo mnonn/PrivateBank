@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def forem_email
     email
   end
+  
+  def can_read_forem_forums?
+    persisted? && this.raidmember==1 
+  end
 end
