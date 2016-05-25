@@ -1,3 +1,14 @@
-<div class="form-container pull-left">
-  <%= render @users %>
+<div class="chars row pull-left">
+  <table class="usertable">
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Email</th>
+      <th>Mod</th>
+      <th>Raid</th>
+      <th>Forum</th>
+      <th>Functions</th>
+    </tr>
+    <%= render @users %>
+  </table>
 </div>

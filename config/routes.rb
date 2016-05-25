@@ -24,10 +24,11 @@ Rails.application.routes.draw do
   get 'lootlist' => 'lootlist#lootlist'
   get 'events' => 'events#index'
   get 'users/show'
-  get 'users' => 'users#index'
   post 'users/mod' => 'users#mod'
   post 'users/raid' => 'users#raid'
   post 'users/forumadmin' => 'users#forumadmin'  
+  post 'users/admindestroy' => 'users#admindestroy'
+  get 'users' => 'users#index'
   get "notfound", to: "application#catch_404", via: :all
  	get "*path", to: "application#catch_404", via: :all
   # The priority is based upon order of creation: first created -> highest priority.

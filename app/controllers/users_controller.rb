@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   
   def index
-    @users = User.all.page(params[:page])
+    @users = User.order("id ASC").page(params[:page]).per(20)
+    #@users = User.all.page(params[:page])
   end
     
   def mod
@@ -14,6 +15,12 @@ class UsersController < ApplicationController
     end 
     @user.save
     redirect_to users_path
+  end
+  
+  def admindestroy
+  	@user = User.find(params[:id])
+  	@user.destroy
+  	redirect_to users_path
   end
   
   def raid

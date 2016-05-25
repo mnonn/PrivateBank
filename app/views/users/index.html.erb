@@ -1,3 +1,17 @@
 <div class="chars row pull-left">
-  <%= render @users %>
+  <table class="usertable">
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Email</th>
+      <th>Mod</th>
+      <th>Raid</th>
+      <th>Forum</th>
+      <th>Functions</th>
+    </tr>
+    <%= render @users %>
+  </table>
+  <div class="container pull-left">
+	  <%= paginate @users %>
+  </div>
 </div>
