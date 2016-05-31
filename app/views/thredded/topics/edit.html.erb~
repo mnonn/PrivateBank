@@ -1,0 +1,47 @@
+<%= render('shared/sidebar') %>
+
+<div class="forum-index pull-left">
+
+<% content_for :thredded_page_title, t('thredded.nav.edit_private_topic') %>
+<% content_for :thredded_page_id, 'thredded--edit-topic' %>
+<% content_for :thredded_breadcrumbs do %>
+  <ul class="thredded--navigation-breadcrumbs">
+    <li><%= link_to t('thredded.nav.all_messageboards'), messageboards_path %></li>
+    <li><%= link_to messageboard.name, messageboard_topics_path(@topic.messageboard, @topic) %></li>
+    <li><%= link_to @topic.title, topic_path(@topic) %></li>
+    <li><%= link_to t('thredded.nav.edit_topic'), edit_messageboard_topic_path(@topic.messageboard, @topic) %></li>
+  </ul>
+<% end %>
+
+<%= thredded_page do %>
+  <%= form_for [@topic.messageboard, @topic],
+               html: { class: 'thredded--form thredded--is-expanded', 'data-thredded-topic-form' => true } do |form| %>
+    <ul class="thredded--form-list on-top">
+
+      <li class="title">
+        <%= form.label :title, t('thredded.topics.form.title_label') %>
+        <%= form.text_field :title,
+                            placeholder: t('thredded.topics.form.title_placeholder'),
+                            autofocus:   true,
+                            required:    true %>
+      </li>
+
+      <% if form.object.categories.any? %>
+        <li class="category">
+          <%= form.select :category_ids, form.object.category_options, {},
+                          multiple:          true,
+                          'data-placeholder' => t('thredded.topics.form.categories_placeholder') %>
+        </li>
+      <% end %>
+
+      <%= render 'thredded/topics/topic_form_admin_options', form: form %>
+
+      <li>
+        <button type="submit" class="thredded--form--submit">
+          <%= t('thredded.topics.form.update_btn') %>
+        </button>
+      </li>
+  <% end %>
+  </ul>
+<% end %>
+</div>

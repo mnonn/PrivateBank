@@ -1,6 +1,8 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$font-color-yellow: #FCC02C;
+
 .news-front{
 	font-family: fira_sansregular;
 	position: relative;
@@ -14,11 +16,19 @@
     border-color: rgb(80,80,80);
     border-radius: 5px;
 	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	img{
+		display: block; 
+		max-width: 100%; 
+		height: auto;
+	}
+	.large-title{
+		color: $font-color-yellow;
+	}
 	.title {
 		color: grey;
 	}
 	.art-text{
-	  font-family: fira_sansregular;
+	  	font-family: fira_sansregular;
 		border-top: 0.5px solid;
 		border-bottom: 0.5px solid;
 		border-color: rgb(80,80,80);
@@ -28,11 +38,12 @@
 		margin: 10px;
 		padding: 10px 0px;	
 		.bottom-links{
+			color: $font-color-yellow;
 			content: " | ";
 			position: absolute;
-	  	    bottom: 5%;
-	    	left: 0;
-	    	margin: 10px;
+	  	bottom: 5%;
+	    left: 0;
+	    margin-bottom: 10px;
 		}
 	}
 }
@@ -64,6 +75,7 @@
 		margin: 10px;
 		padding: 10px 0px;	
 		.bottom-links{
+			color: $font-color-yellow;
 			content: " | ";
 			position: absolute;
 	  	    bottom: 5%;

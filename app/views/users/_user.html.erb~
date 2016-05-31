@@ -7,6 +7,7 @@
   <td><%= user.forem_admin %></td>
   <td>
     <div class="bottom-links">
+      <small>
       <% if current_user.moderator == 1 && current_user != user %>
         <div class="actions"><%= button_to 'mod', {controller: 'users', action: 'mod', :id => user.id} %></div>
       <% end %>
@@ -15,6 +16,7 @@
         <div class="actions"><%= button_to 'forum', {controller: 'users', action: 'forumadmin', :id => user.id} %></div>
         <div class="actions"><%= button_to 'löschen', {controller: 'users', action: 'admindestroy', :id => user.id, data: { confirm: "Sind sie sicher?" }} %></div>
       <% end %>
+      </small>
     </div>
   </td>
 </tr>

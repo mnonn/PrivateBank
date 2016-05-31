@@ -22,6 +22,7 @@ gem 'omniauth-bnet', '~> 1.1'
 gem 'kaminari'
 
 #forem gem with styles for the forum implementation
+gem 'thredded'
 gem 'forem', github: "radar/forem", branch: "rails4"
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
 gem 'forem-redcarpet', github: "radar/forem-redcarpet"

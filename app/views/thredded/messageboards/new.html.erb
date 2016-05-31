@@ -1,0 +1,15 @@
+<%= render('shared/sidebar') %>
+
+<div class="forum-index pull-left">
+<% content_for :thredded_page_title, t('thredded.messageboard.create') %>
+<% content_for :thredded_page_id, 'thredded--messageboards-new' %>
+<% content_for :thredded_breadcrumbs do %>
+  <ul class="thredded--navigation-breadcrumbs">
+    <li><%= t('thredded.messageboard.create') %></li>
+  </ul>
+<% end %>
+
+<%= thredded_page do %>
+  <%= render 'form', messageboard: @messageboard %>
+<% end %>
+</div>

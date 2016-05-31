@@ -1,0 +1,9 @@
+<% if user %>
+  <% if !user.thredded_anonymous? %>
+<a href="<%= user_path(user) %>"><%= user.username.to_s %></a>
+  <% else %>
+<%= user.to_s %>
+  <% end %>
+<% else %>
+<em><%= t 'thredded.null_user_name' %></em>
+<% end %>

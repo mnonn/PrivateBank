@@ -1,0 +1,28 @@
+<div class="login-form-container row pull-right">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control", type: "email", id: "email" %>
+  </div> 
+  <div class="form-group">
+    <%= f.label :passwort %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+    
+    <% if User.find_by_email(resource.email) %>
+      <% if User.find_by_email(resource.email).failed_attempts >= User.logins_before_captcha %>
+        <%= recaptcha_tags %>
+      <% end %>
+    <% end %>
+    
+    <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+    <% end -%>
+
+    <div class="actions pull-right">
+      <%= f.submit "Anmelden" %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,4 @@
+class AddIndexUserName < ActiveRecord::Migration
+  def change
+  end
+end

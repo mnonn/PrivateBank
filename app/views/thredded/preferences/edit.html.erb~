@@ -1,0 +1,10 @@
+<% content_for :thredded_page_title, t('thredded.preferences.edit.page_title') %>
+<% content_for :thredded_page_id, 'thredded--preferences' %>
+<% content_for :thredded_breadcrumbs, render('thredded/shared/breadcrumbs') %>
+
+<%= thredded_page do %>
+  <section class="thredded--main-section preferences">
+    <%= render 'thredded/preferences/header' %>
+    <%= render 'thredded/preferences/form', preferences: @preferences %>
+  </section>
+<% end %>

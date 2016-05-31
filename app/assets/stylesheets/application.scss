@@ -13,12 +13,16 @@
  *= require_tree .
  *= require_self
  */
- 
+$font-color-yellow: #FCC02C;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
 @import 'forem/base';
 @import 'rails_emoji_picker';
+@import 'forum';
+@import 'thredded';
+
 
 @font-face {
     font-family: 'lifecraftregular';
@@ -48,10 +52,10 @@
 .main{
 	background: rgb(15,15,15);
 	font-family: fira_sansregular;
-	.logo{
+  .logo{
 		font-family: lifecraftregular;
 		font-size: 150%;
-		color: #FCC02C;
+		color: $font-color-yellow;
 		background: url('banner.png') no-repeat;
 		background-size: 8%;
 		background-position: 110px 50px;
@@ -68,45 +72,28 @@
 		    border-width: 5px;
 		    border-color: rgb(80,80,80);
 		    border-radius: 5px;
+		 	.wowhead-news{
+				padding: 0px 25px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
 			.wowprogress{
 				padding: 0px 60px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+
 			}
 			.discord{
-			  padding: 10px 5px;
+			  padding: 10px 10px;
 			}
 		}
 	}
 }
 
-.forum-index{
-	font-family: fira_sansregular;
-	position: relative;
-	color: black;
-	background: white;
-	margin: 10px;
-	padding: 0 20px;
-	max-width: 1100px;
-	border-style: solid;
-    border-width: 5px;
-    border-color: rgb(80,80,80);
-    border-radius: 5px;
-	box-shadow: 0 1px 4px rgba(0,0,0,.3);
-	.title {
-		color: grey;
-	}
-	.forum-tile{
-	  
-	}
-	.category{
-	}
-	.post{
-	  margin: 10px;
-	  max-width: 1000px;
-	  background: rgb(240,240,240);
-	  
-	}
-	.topic{
-	}
+.online-stuff{
+    width: 200px;
+    color: white;
+	background: rgb(50,50,50);
 }
 
 .form-container{
@@ -118,19 +105,19 @@
 	padding: 5px 20px;
 	max-width: 700px;
 	border-style: solid;
-    border-width: 5px;
-    border-color: rgb(80,80,80);
-    border-radius: 5px;
+  border-width: 5px;
+  border-color: rgb(80,80,80);
+  border-radius: 5px;
 	box-shadow: 0 1px 4px rgba(0,0,0,.3);	
 }
 
 .submit-btn{
   font-family: fira_sansregular;
 	color: white;
-}
+}	
 .actions{
   font-family: fira_sansregular;
-	color: black;
+  color: black;
 }
 
 .textfield{
@@ -155,3 +142,5 @@
   font-family: fira_sansregular;
   @extend .alert-info;
 }
+
+

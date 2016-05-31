@@ -1,12 +1,14 @@
 <div class="news-front container pull-left">
- 		<h3><%= article.title %></h3>
+ 		<h3 class="large-title"><%= article.title %></h3>
 		<small class="title"><%= article.user.username %> -- Erstellt vor <%= time_ago_in_words(article.created_at) %></small>	
 		<div class="art-text container">
-			<%= article.text.html_safe %> <br>
+			<% cache [article, 'text'], expires_in: 1.week do %>
+        		<%= article.filtered_content(self) %>
+      		<% end %>
 		</div>
-      	<div class="bottom-links container">
+     <div class="bottom-links container">
 				<%= link_to 'Kommentare', article_path(article) %>
-				( <%= article.comments.count %> ) 
+				 ( <%= article.comments.count %></span> ) 
 				<% if article.user == current_user && current_user.moderator == 1 %>	
 					| <%= link_to 'Ändern', edit_article_path(article) %> |
 					<%= link_to 'Löschen', article_path(article),

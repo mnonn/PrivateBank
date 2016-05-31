@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512174165) do
+ActiveRecord::Schema.define(version: 20160530124342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,19 @@ ActiveRecord::Schema.define(version: 20160512174165) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 191, null: false
+    t.integer  "sluggable_id",               null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 191
+    t.datetime "created_at",                 null: false
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "lootquotients", force: :cascade do |t|
     t.integer  "raids_participated"
     t.integer  "loot"
@@ -136,6 +149,187 @@ ActiveRecord::Schema.define(version: 20160512174165) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "thredded_categories", force: :cascade do |t|
+    t.integer  "messageboard_id",             null: false
+    t.string   "name",            limit: 191, null: false
+    t.string   "description",     limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "slug",            limit: 191, null: false
+  end
+
+  add_index "thredded_categories", ["messageboard_id", "slug"], name: "index_thredded_categories_on_messageboard_id_and_slug", unique: true, using: :btree
+  add_index "thredded_categories", ["messageboard_id"], name: "index_thredded_categories_on_messageboard_id", using: :btree
+
+  create_table "thredded_messageboard_groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "thredded_messageboard_users", force: :cascade do |t|
+    t.integer  "thredded_user_detail_id",  null: false
+    t.integer  "thredded_messageboard_id", null: false
+    t.datetime "last_seen_at",             null: false
+  end
+
+  add_index "thredded_messageboard_users", ["thredded_messageboard_id", "last_seen_at"], name: "index_thredded_messageboard_users_for_recently_active", using: :btree
+  add_index "thredded_messageboard_users", ["thredded_messageboard_id", "thredded_user_detail_id"], name: "index_thredded_messageboard_users_primary", using: :btree
+
+  create_table "thredded_messageboards", force: :cascade do |t|
+    t.string   "name",                  limit: 255,                 null: false
+    t.string   "slug",                  limit: 191
+    t.text     "description"
+    t.integer  "topics_count",                      default: 0
+    t.integer  "posts_count",                       default: 0
+    t.boolean  "closed",                            default: false, null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "messageboard_group_id"
+  end
+
+  add_index "thredded_messageboards", ["closed"], name: "index_thredded_messageboards_on_closed", using: :btree
+  add_index "thredded_messageboards", ["messageboard_group_id"], name: "index_thredded_messageboards_on_messageboard_group_id", using: :btree
+  add_index "thredded_messageboards", ["slug"], name: "index_thredded_messageboards_on_slug", using: :btree
+
+  create_table "thredded_post_notifications", force: :cascade do |t|
+    t.string   "email",      limit: 191, null: false
+    t.integer  "post_id",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "post_type",  limit: 191
+  end
+
+  add_index "thredded_post_notifications", ["post_id", "post_type"], name: "index_thredded_post_notifications_on_post", using: :btree
+
+  create_table "thredded_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.string   "ip",              limit: 255
+    t.string   "source",          limit: 255, default: "web"
+    t.integer  "postable_id"
+    t.integer  "messageboard_id",                             null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "thredded_posts", ["messageboard_id"], name: "index_thredded_posts_on_messageboard_id", using: :btree
+  add_index "thredded_posts", ["postable_id"], name: "index_thredded_posts_on_postable_id", using: :btree
+  add_index "thredded_posts", ["postable_id"], name: "index_thredded_posts_on_postable_id_and_postable_type", using: :btree
+  add_index "thredded_posts", ["user_id"], name: "index_thredded_posts_on_user_id", using: :btree
+
+  create_table "thredded_private_posts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.string   "ip",          limit: 255
+    t.integer  "postable_id",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "thredded_private_topics", force: :cascade do |t|
+    t.integer  "user_id",                              null: false
+    t.integer  "last_user_id",                         null: false
+    t.string   "title",        limit: 255,             null: false
+    t.string   "slug",         limit: 191,             null: false
+    t.integer  "posts_count",              default: 0
+    t.string   "hash_id",      limit: 191,             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "thredded_private_topics", ["hash_id"], name: "index_thredded_private_topics_on_hash_id", using: :btree
+  add_index "thredded_private_topics", ["slug"], name: "index_thredded_private_topics_on_slug", using: :btree
+
+  create_table "thredded_private_users", force: :cascade do |t|
+    t.integer  "private_topic_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "thredded_private_users", ["private_topic_id"], name: "index_thredded_private_users_on_private_topic_id", using: :btree
+  add_index "thredded_private_users", ["user_id"], name: "index_thredded_private_users_on_user_id", using: :btree
+
+  create_table "thredded_topic_categories", force: :cascade do |t|
+    t.integer "topic_id",    null: false
+    t.integer "category_id", null: false
+  end
+
+  add_index "thredded_topic_categories", ["category_id"], name: "index_thredded_topic_categories_on_category_id", using: :btree
+  add_index "thredded_topic_categories", ["topic_id"], name: "index_thredded_topic_categories_on_topic_id", using: :btree
+
+  create_table "thredded_topics", force: :cascade do |t|
+    t.integer  "user_id",                                     null: false
+    t.integer  "last_user_id",                                null: false
+    t.string   "title",           limit: 255,                 null: false
+    t.string   "slug",            limit: 191,                 null: false
+    t.integer  "messageboard_id",                             null: false
+    t.integer  "posts_count",                 default: 0,     null: false
+    t.boolean  "sticky",                      default: false, null: false
+    t.boolean  "locked",                      default: false, null: false
+    t.string   "hash_id",         limit: 191,                 null: false
+    t.string   "type",            limit: 191
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "thredded_topics", ["hash_id"], name: "index_thredded_topics_on_hash_id", using: :btree
+  add_index "thredded_topics", ["messageboard_id", "slug"], name: "index_thredded_topics_on_messageboard_id_and_slug", unique: true, using: :btree
+  add_index "thredded_topics", ["messageboard_id"], name: "index_thredded_topics_on_messageboard_id", using: :btree
+  add_index "thredded_topics", ["user_id"], name: "index_thredded_topics_on_user_id", using: :btree
+
+  create_table "thredded_user_details", force: :cascade do |t|
+    t.integer  "user_id",                        null: false
+    t.datetime "latest_activity_at"
+    t.integer  "posts_count",        default: 0
+    t.integer  "topics_count",       default: 0
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.datetime "last_seen_at"
+  end
+
+  add_index "thredded_user_details", ["latest_activity_at"], name: "index_thredded_user_details_on_latest_activity_at", using: :btree
+  add_index "thredded_user_details", ["user_id"], name: "index_thredded_user_details_on_user_id", using: :btree
+
+  create_table "thredded_user_messageboard_preferences", force: :cascade do |t|
+    t.integer  "user_id",                          null: false
+    t.integer  "messageboard_id",                  null: false
+    t.boolean  "notify_on_mention", default: true, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "thredded_user_messageboard_preferences", ["user_id", "messageboard_id"], name: "thredded_user_messageboard_preferences_user_id_messageboard_id", unique: true, using: :btree
+
+  create_table "thredded_user_preferences", force: :cascade do |t|
+    t.integer  "user_id",                          null: false
+    t.boolean  "notify_on_mention", default: true, null: false
+    t.boolean  "notify_on_message", default: true, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "thredded_user_preferences", ["user_id"], name: "index_thredded_user_preferences_on_user_id", using: :btree
+
+  create_table "thredded_user_private_topic_read_states", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "postable_id",             null: false
+    t.integer  "page",        default: 1, null: false
+    t.datetime "read_at",                 null: false
+  end
+
+  add_index "thredded_user_private_topic_read_states", ["user_id", "postable_id"], name: "thredded_user_private_topic_read_states_user_postable", unique: true, using: :btree
+
+  create_table "thredded_user_topic_read_states", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "postable_id",             null: false
+    t.integer  "page",        default: 1, null: false
+    t.datetime "read_at",                 null: false
+  end
+
+  add_index "thredded_user_topic_read_states", ["user_id", "postable_id"], name: "thredded_user_topic_read_states_user_postable", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -162,7 +356,7 @@ ActiveRecord::Schema.define(version: 20160512174165) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.integer  "cached_failed_attempts", default: 0
-    t.boolean  "forem_admin",            default: false
+    t.boolean  "thredded_admin",         default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
   end
@@ -183,4 +377,6 @@ ActiveRecord::Schema.define(version: 20160512174165) do
     t.integer  "user_id"
   end
 
+  add_foreign_key "thredded_messageboard_users", "thredded_messageboards"
+  add_foreign_key "thredded_messageboard_users", "thredded_user_details"
 end

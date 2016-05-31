@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
-  mount Forem::Engine, :at => '/forums'
+  #mount Forem::Engine, :at => '/forums'
+  mount Thredded::Engine => '/forum'
 
 
   devise_for :users, controllers: {
@@ -23,12 +24,13 @@ Rails.application.routes.draw do
   get 'raid' => 'raid#index'
   get 'lootlist' => 'lootlist#lootlist'
   get 'events' => 'events#index'
-  get 'users/show'
-  get 'users' => 'users#index'
+  get 'users/:id', to: 'users#show'
+  #get 'users/show' => 'users#show'
   post 'users/mod' => 'users#mod'
   post 'users/raid' => 'users#raid'
   post 'users/forumadmin' => 'users#forumadmin'  
   post 'users/admindestroy' => 'users#admindestroy'
+  get 'users' => 'users#index'
   get "notfound", to: "application#catch_404", via: :all
  	get "*path", to: "application#catch_404", via: :all
   # The priority is based upon order of creation: first created -> highest priority.

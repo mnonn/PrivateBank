@@ -17,10 +17,10 @@
 			<div class="container">
 			<ul class="nav navbar-nav">
 				<li><%= link_to 'Home', main_app.root_path %></li>
-				<li><%= link_to 'Forum', forem.forums_path %></li>
-				<!--<li><%= link_to 'Raid', main_app.raid_path %></li>-->
+				<li><%= link_to 'Raid', main_app.raid_path %></li>
 				<li><a href="https://www.warcraftlogs.com/guilds/22192" target="_blank">Logs</a></li>
 				<% if user_signed_in? && current_user.raidmember == 1 %>
+  				<li><%= link_to 'Forum', thredded_path %></li>
 					<li><%= link_to 'Lootliste', main_app.lootlist_path %></li>
 					<!--<li><%= link_to 'Events', main_app.events_path %></li>-->
 				<% end %> 
@@ -37,10 +37,8 @@
             			    <li><%= link_to 'Admin', main_app.users_path %></li>
               				<li><%= link_to 'Neuer Post', main_app.new_article_path %></li>
               		<% end %>
-              		<% if current_user.forem_admin %>
-              		  <li><%= link_to 'Forum Adminpanel', forem.admin_root_url %></li>
-              		<% end %>
-              		<li><%= link_to 'Profil', main_app.users_show_path(current_user) %></li>
+
+              		<li><%= link_to 'Profil', main_app.user_path(current_user.id) %></li>
               		<li><%= link_to 'Abmelden', main_app.destroy_user_session_path, method: :delete %></li>
             		</ul>
           		</li>
@@ -67,7 +65,7 @@
 <div class="main-field container">
     <!--<h1><%= yield :header %></h1>-->
     <!-- right sidebar -->
-	
+
 	<!-- /right sidebar -->
   	<%= yield %>
 </div>

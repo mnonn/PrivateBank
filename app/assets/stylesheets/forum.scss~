@@ -1,0 +1,118 @@
+ $font-color-yellow: #FCC02C;
+
+.forum-index{
+	font-family: fira_sansregular;
+	color: black;
+	background: rgb(50,50,50);
+  width: 750px;
+	border-style: solid;
+  border-width: 5px;
+  border-color: rgb(80,80,80);
+  border-radius: 5px;
+	box-shadow: 0 1px 4px rgba(0,0,0,.3);
+	.thredded--messageboard{
+	  background: rgb(35,35,35);
+	  .thredded--messageboard--title{
+	    color: $font-color-yellow;
+	    font-size: 120%;
+	  }
+	}
+	.thredded--topics--posts-count{
+	  font-size: 70%;
+	}
+	.thredded--topics--title{
+	  font-size: 110%;
+	}
+	.thredded--topic-header--title{
+  	text-shadow: 0 1px 4px rgba(0,0,0,.3);
+	  color: $font-color-yellow;
+	  font-size: 140%;
+	}
+	.forum-post{
+	  .thredded--post--user{
+	    color: $font-color-yellow;
+	    font-size: 110%;
+	  }
+	  .thredded--post--content{
+	    font-size: 95%;
+	  }
+	}
+}
+
+// Grid
+$thredded-grid-container-max-width: 63.125rem !default;
+$thredded-grid-breakpoint-max-widths: (mobile: 34rem, tablet: 48rem) !default;
+
+// Typography
+$thredded-base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif !default;
+$thredded-base-font-size: 1.5rem !default; // 16px
+$thredded-font-size-small: 1.275rem !default; // 14px
+$thredded-base-line-height: 1.5 !default;
+$thredded-heading-font-family: inherit !default;
+$thredded-heading-line-height: 1.2 !default;
+
+// Spacings
+$thredded-large-spacing: $thredded-base-line-height * 2rem !default;
+$thredded-base-spacing: $thredded-base-line-height * 1rem !default;
+$thredded-small-spacing: $thredded-base-spacing / 2 !default;
+
+// Named colors
+$thredded-brand: $font-color-yellow !default;
+$thredded-dark-gray: rgb(20,20,20) !default;
+$thredded-light-gray: rgb(150,150,150) !default;
+
+// Colors of text, background, actions (links), and navigation
+$thredded-text-color: white !default;
+$thredded-secondary-text-color: $thredded-light-gray !default;
+$thredded-background-color: $thredded-dark-gray !default;
+$thredded-action-color: $thredded-brand !default;
+$thredded-action-hover-color: darken($thredded-action-color, 15%) !default;
+$thredded-action-transition: color 0.1s linear !default;
+$thredded-nav-color: $thredded-text-color !default;
+$thredded-nav-hover-color: $thredded-action-color !default;
+$thredded-nav-current-color: $thredded-action-color !default;
+$thredded-secondary-nav-color: $thredded-secondary-text-color !default;
+$thredded-spoiler-hidden-color: $thredded-dark-gray !default;
+$thredded-spoiler-shown-color: black !default;
+
+
+// Colors of alerts and flash messages
+$thredded-alert-danger-background: #fbe3e4 !default;
+$thredded-alert-danger-color: #a94442 !default;
+$thredded-alert-info-background: #e6f3fa !default;
+$thredded-alert-info-color: darken($thredded-brand, 15%) !default;
+$thredded-alert-success-background: #e6efc2 !default;
+$thredded-alert-success-color: #3c763d !default;
+$thredded-alert-warning-background: #fcf8e3 !default;
+$thredded-alert-warning-color: #8a6d3b !default;
+
+// Borders
+$thredded-base-border-color: $thredded-light-gray !default;
+$thredded-base-border: 1px solid $thredded-base-border-color !default;
+$thredded-blockquote-border-color: $thredded-light-gray !default;
+
+// Form inputs
+$thredded-form-background: $thredded-background-color !default;
+$thredded-form-border-color: darken($thredded-base-border-color, 5%) !default;
+$thredded-form-border-hover-color: darken($thredded-form-border-color, 6.4%) !default;
+$thredded-form-border-focus-color: $thredded-action-color !default;
+$thredded-form-border: 1px solid $thredded-form-border-color !default;
+$thredded-form-box-shadow: inset 0 1px 3px rgba(#000, 0.06) !default;
+$thredded-form-color: white !default;
+
+// Buttons
+$thredded-button-background: $thredded-action-color !default;
+$thredded-button-color: rgb(40,40,40) !default;
+$thredded-button-hover-color: $thredded-button-color !default;
+$thredded-button-hover-background: darken($thredded-button-background, 15%) !default;
+$thredded-button-border-radius: 3px !default;
+$thredded-button-font-family: $thredded-base-font-family !default;
+$thredded-button-font-size: $thredded-font-size-small !default;
+$thredded-button-font-weight: 600 !default;
+$thredded-button-line-height: 1 !default;
+
+// Badges (unread count, posts count)
+$thredded-badge-active-color: $thredded-button-color !default;
+$thredded-badge-active-background: $thredded-action-color !default;
+$thredded-badge-inactive-color: $thredded-button-color !default;
+$thredded-badge-inactive-background: rgba($thredded-text-color, 0.3) !default;

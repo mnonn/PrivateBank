@@ -17,5 +17,6 @@
 //= require bootstrap/dropdown
 //= require forem
 //= require rails_emoji_picker
+//= require thredded
 //= require_tree .
 

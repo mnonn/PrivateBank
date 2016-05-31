@@ -1,41 +1,40 @@
 <div class="form-container row pull-left">
-  <h2>Benutzerinformationen für <%= resource_name.to_s.humanize %> anpassen</h2>
+  <h2><%= current_user.username.to_s %> anpassen</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :benutzername %><br />
-      <p class="textfield"><%= f.text_field :username %></p>
+    <div class="form-group">
+      <%= f.label :benutzername %>
+      <%= f.text_field :username, class: "form-control" %>
     </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <p class="textfield"><%= f.email_field :email, autofocus: true %></p>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: "form-control" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Bestätigung notwendig für: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :passwort %> <i>(nicht ausfüllen, wenn keine Änderung gewünscht ist)</i><br />
-      <p class="textfield"><%= f.password_field :password, autocomplete: "off" %></p>
+    <div class="form-group">
+      <%= f.label :passwort %> <i>(optional)</i>
+      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
     </div>
 
-    <div class="field">
-      <%= f.label :passwort_bestätigen %><br />
-      <p class="textfield"><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+    <div class="form-groupe">
+      <%= f.label :passwort_bestätigen %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
     </div>
 
-    <div class="field">
-      <%= f.label :aktuelles_passwort %> <i>(Ihr aktuelles Passwort wird als Bestätigung benötigt)</i><br />
-      <p class="textfield"><%= f.password_field :current_password, autocomplete: "off" %></p>
+    <div class="form-group">
+      <%= f.label :aktuelles_passwort %>
+      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Bestätigen" %>
-    </div>
+    <%= f.submit "Bestätigen", class: "btn btn-default"%>
+
   <% end %>
 
   <h3>Account löschen</h3>

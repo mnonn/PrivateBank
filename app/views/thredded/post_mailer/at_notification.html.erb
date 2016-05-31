@@ -1,0 +1,14 @@
+<blockquote><%= @post.filtered_content(self) %></blockquote>
+
+<hr />
+
+<p>
+  This email was sent to you because <%= @post.user.to_s %> mentioned you in
+  "<%= link_to @post.postable.title, post_permalink_url(@post.id) %>".
+  <%= link_to 'View the conversation here', topic_url(@post.postable) %>.
+</p>
+
+<p>
+  To unsubscribe from these emails, update your
+  <%= link_to 'preferences', edit_messageboard_preferences_url(@post.messageboard) %>.
+</p>

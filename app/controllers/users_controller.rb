@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.order("id ASC").page(params[:page]).per(20)
-    #@users = User.all.page(params[:page])
   end
     
   def mod
@@ -36,16 +35,16 @@ class UsersController < ApplicationController
   
   def forumadmin
     @user = User.find(params[:id])
-    if @user.forem_admin == false
-      @user.forem_admin = true
+    if @user.thredded_admin == false
+      @user.thredded_admin = true
     else
-      @user.forem_admin = false
+      @user.thredded_admin = false
     end 
     @user.save
     redirect_to users_path
   end
   
   def show
-  	@user = current_user
+  	@user = User.find(params[:id])
   end
 end
