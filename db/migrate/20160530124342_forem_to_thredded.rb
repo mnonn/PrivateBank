@@ -41,7 +41,7 @@ class ForemToThredded < ActiveRecord::Migration
         say 'Copying Topics...'
         forem_posts_by_topic = forem_data[:posts].group_by { |p| p['topic_id'] }
         topics = forem_data[:topics].reject { |t| t['state'] == 'spam' }.inject({}) { |h, t|
-          last_post = forem_posts_by_topic[t['id']].max_by { |p| p['created_at'] }
+          last_post = forem_posts_by_topic[t['id']].max_by 
           h.update(
               t['id'] => Thredded::Topic.create!(
                   messageboard_id: boards[t['forum_id']].id,
