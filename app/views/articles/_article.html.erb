@@ -3,7 +3,7 @@
 		<small class="title"><%= article.user.username %> -- Erstellt vor <%= time_ago_in_words(article.created_at) %></small>	
 		<div class="art-text container">
 			<% cache [article, 'text'], expires_in: 1.week do %>
-        		<%= article.filtered_content(self) %>
+        		<%= article.text.html_safe %>
       		<% end %>
 		</div>
      <div class="bottom-links container">
