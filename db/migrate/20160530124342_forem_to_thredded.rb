@@ -50,8 +50,8 @@ class ForemToThredded < ActiveRecord::Migration
                   slug:            t['slug'],
                   sticky:          t['pinned'],
                   locked:          t['locked'],
-                  created_at:      t['created_at'],
-                  updated_at:      last_post['created_at'],
+                  created_at:      now,
+                  updated_at:      now,
                   last_user_id:    last_post['user_id']
               )
           )
@@ -65,8 +65,8 @@ class ForemToThredded < ActiveRecord::Migration
                   user_id:         p['user_id'],
                   messageboard_id: topic.messageboard_id,
                   postable_id:     topic.id,
-                  created_at:      p['created_at'],
-                  updated_at:      p['updated_at'],
+                  created_at:      now,
+                  updated_at:      now,
                   content:         p['text']
               )
           )

@@ -50,8 +50,8 @@ class ForemToThredded < ActiveRecord::Migration
                   slug:            t['slug'],
                   sticky:          t['pinned'],
                   locked:          t['locked'],
-                  created_at:      t['created_at'],
-                  updated_at:      last_post['created_at'],
+                  created_at:      now,
+                  updated_at:      now,
                   last_user_id:    last_post['user_id']
               )
           )
@@ -74,7 +74,7 @@ class ForemToThredded < ActiveRecord::Migration
         say "Created #{posts.size} Posts"
 
         say 'Creating UserDetails'
-        #rename_column Thredded.user_class.table_name, :forem_admin, :thredded_admin
+        rename_column Thredded.user_class.table_name, :forem_admin, :thredded_admin
         posts.values.group_by(&:user_id).each do |user_id, user_posts|
           user_detail = Thredded::UserDetail.create!(
               user_id:            user_id,
@@ -98,7 +98,7 @@ class ForemToThredded < ActiveRecord::Migration
   end
 
   def down
-    #rename_column Thredded.user_class.table_name, :thredded_admin, :forem_admin
+    rename_column Thredded.user_class.table_name, :thredded_admin, :forem_admin
     [Thredded::Messageboard, Thredded::Topic, Thredded::Post, Thredded::UserDetail].each(&:delete_all)
   end
 end
