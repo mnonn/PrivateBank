@@ -28,13 +28,31 @@
 	  font-size: 140%;
 	}
 	.forum-post{
+		.thredded--post--avatar{
+			transform: scale(3.0);
+			display: inline;
+			margin-top: 22px;
+		}
 	  .thredded--post--user{
+	  	margin-left: 22px;
 	    color: $font-color-yellow;
 	    font-size: 110%;
 	  }
 	  .thredded--post--content{
+	  	margin-left: 22px;
 	    font-size: 95%;
 	  }
+	  .thredded--post--edit{
+	   	margin-left: 22px;
+		}
+		.thredded--post--delete{
+			margin-left: 22px;			
+		}
+
+
+	}
+	.thredded--currently-online--avatar{
+		transform: scale(1.5);
 	}
 }
 

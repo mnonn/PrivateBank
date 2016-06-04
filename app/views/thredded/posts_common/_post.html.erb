@@ -1,6 +1,7 @@
 <div class="forum-post">
   <%# @param post [Thredded::PostView] %>
   <%= content_tag :article, id: dom_id(post), class: 'thredded--post' do %>
+
     <header>
       <%= image_tag post.avatar_url, class: 'thredded--post--avatar' if post.user %>
       <h2 class="thredded--post--user"><%= user_link post.user %></h2>
