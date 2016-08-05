@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530124342) do
+ActiveRecord::Schema.define(version: 20160526180416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -304,11 +304,11 @@ ActiveRecord::Schema.define(version: 20160530124342) do
   add_index "thredded_user_messageboard_preferences", ["user_id", "messageboard_id"], name: "thredded_user_messageboard_preferences_user_id_messageboard_id", unique: true, using: :btree
 
   create_table "thredded_user_preferences", force: :cascade do |t|
-    t.integer  "user_id",                          null: false
-    t.boolean  "notify_on_mention", default: true, null: false
-    t.boolean  "notify_on_message", default: true, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "user_id",                           null: false
+    t.boolean  "notify_on_mention", default: false, null: false
+    t.boolean  "notify_on_message", default: false, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "thredded_user_preferences", ["user_id"], name: "index_thredded_user_preferences_on_user_id", using: :btree
@@ -356,7 +356,7 @@ ActiveRecord::Schema.define(version: 20160530124342) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.integer  "cached_failed_attempts", default: 0
-    t.boolean  "thredded_admin",         default: false
+    t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
   end

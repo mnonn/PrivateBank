@@ -1,4 +1,0 @@
-class AddCachedfailedattemptsToUsers < ActiveRecord::Migration
-  def change
-  end
-end

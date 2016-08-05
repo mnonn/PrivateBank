@@ -1,6 +1,0 @@
-Auf einen Beitrag, dem sie folgen, wurde geanwortet. Um die Antwort anzusehen nutzen sie den folgenden Link:
-
-<%= forem.forum_topic_url(@post.topic.forum_id, @post.topic) %>
-
-Falls sie dem Beitrag nicht mehr folgen möchten, nutzen sie bitte folgenden Link:
-<%= forem.unsubscribe_forum_topic_url(@post.topic.forum, @post.topic) %>

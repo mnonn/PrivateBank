@@ -1,9 +1,0 @@
-<p>Hallo <%= @resource.email %>!</p>
-
-<p>Ihr Account wurde gesperrt aufgrund einer ungewöhnlich hohen Anzahl von fehlgeschlagenen Anmeldungen.</p>
-
-<p>Nutzen sie den folgenden Link um den Account wieder frei zu schalten:</p>
-
-<p><%= link_to 'Account freischalten', unlock_url(@resource, unlock_token: @token) %></p>
-
-<p>Viele Grüße</p>

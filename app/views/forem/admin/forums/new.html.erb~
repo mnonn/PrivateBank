@@ -1,7 +1,0 @@
-<div class='form-container'>
-
-<h2><%= t("forem.forum.new") %></h2>
-
-<%= render "form" %>
-
-</div>

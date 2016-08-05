@@ -1,7 +1,0 @@
-<%= render 'thredded/posts_common/form',
-           topic: topic,
-           post: post,
-           data: { emojiable: true },
-           content_label: t('thredded.posts.form.content_label'),
-           button_text: button_text %>
-

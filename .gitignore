@@ -6,9 +6,13 @@
 
 /shared/*
 
+Gemfile.lock
+
 config/database.yml
-config/datebase.yml~
 config/secrets.yml
+
 
 # Ignore application configuration
 /config/application.yml
+
+.env
